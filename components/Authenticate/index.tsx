@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./authenticate.module.css";
 
 interface authenticatePropsTypes {
-  fetchCommits: (pta: string) => void;
+  fetchCommits: (pat: string) => void;
 }
 
 const Authenticate: React.FC<authenticatePropsTypes> = ({ fetchCommits }) => {
