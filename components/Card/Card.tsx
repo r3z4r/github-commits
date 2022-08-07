@@ -9,8 +9,10 @@ interface cardPropsTypes {
 export const Card: React.FC<cardPropsTypes> = ({ title, date, user }) => {
   return (
     <div className={classes.card}>
-      <h2>Deploy</h2>
-      <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
+      <h2>{title}</h2>
+      <p>{date.toLocaleString()}</p>
+      <p> by </p>
+      <p>{user}</p>
     </div>
   );
 };
