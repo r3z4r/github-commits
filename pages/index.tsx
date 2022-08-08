@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Authenticate from "../components/Authenticate";
 import { useLayoutEffect, useState } from "react";
-import Commits from "./commits";
+import Commits from "../components/Commits";
 import classes from "./main.module.css";
 import Loader from "../components/Loader";
 import ActionButton from "../components/ActionButton";
@@ -33,8 +33,7 @@ const Home: NextPage = () => {
   useLayoutEffect(() => {
     const pat = window.localStorage.getItem("personalAccessToken");
     if (pat) {
-      setIsAuthenticated(JSON.parse(pat));
-      fetchCommits(pat);
+      fetchCommits(JSON.parse(pat));
     }
   }, []);
   const fetchCommits = async (pat: string) => {
@@ -52,8 +51,13 @@ const Home: NextPage = () => {
             date: commit.author.date,
           })
         );
-        window.localStorage.setItem("personalAccessToken", JSON.stringify(pat));
-        setIsAuthenticated(pat);
+        if (!isAuthenticated) {
+          window.localStorage.setItem(
+            "personalAccessToken",
+            JSON.stringify(pat)
+          );
+          setIsAuthenticated(pat);
+        }
         setCommits(filteredData.reverse());
       } else {
       }
@@ -79,7 +83,11 @@ const Home: NextPage = () => {
           )}
         </main>
       </div>
-      <ActionButton />
+      {isAuthenticated && (
+        <ActionButton
+          fetchCommits={() => isAuthenticated && fetchCommits(isAuthenticated)}
+        />
+      )}
     </>
   );
 };
