@@ -5,6 +5,7 @@ import { useLayoutEffect, useState } from "react";
 import Commits from "./commits";
 import classes from "./main.module.css";
 import Loader from "../components/Loader";
+import ActionButton from "../components/ActionButton";
 
 const constants = {
   url: "https://api.github.com/repos/r3z4r/github-commits/commits",
@@ -78,6 +79,7 @@ const Home: NextPage = () => {
           )}
         </main>
       </div>
+      <ActionButton />
     </>
   );
 };

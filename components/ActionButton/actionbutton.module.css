@@ -1,0 +1,51 @@
+.container {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  bottom: 0;
+  right: 0;
+  margin: 35px 25px;
+}
+
+.container:hover {
+  transition: all 0.3s;
+}
+
+.button {
+  font-family: Lucida Sans Unicode;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #2cb3f0;
+  bottom: 0;
+  border-radius: 10%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 80px;
+  text-align: center;
+  font-size: 50px;
+  z-index: 100;
+  box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  transform: translate(1.1%);
+}
+
+.button:hover {
+  color: white;
+  background: #06608a;
+}
+.button:active {
+  transform: scale(0.9);
+}
+
+.timer {
+  position: relative;
+  color: rgba(44, 179, 240, 0.4);
+  font-size: 50px;
+  margin: -35px 0 0 0;
+  text-align: center;
+}
